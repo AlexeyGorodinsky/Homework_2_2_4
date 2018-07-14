@@ -26,12 +26,9 @@ def top_words():
 
         content = f.read()
         s = content.lower()
-        s = s.replace('.', '')
-        s = s.replace(',', '')
-        s = s.replace('!', '')
-        s = s.replace(':', '')
-        s = s.replace(';', '')
-        s = s.replace('?', '')
+        deleted_chars = '.,!:;?'
+        for char in deleted_chars:
+            s = s.replace(char, "")
         all_words = s.split(' ')
         dic = {}
 
